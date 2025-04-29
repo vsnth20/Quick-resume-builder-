@@ -21,11 +21,7 @@ form.addEventListener("submit", function (e) {
   `;
 });
 
-// PDF download
 document.getElementById("downloadBtn").addEventListener("click", () => {
   const element = document.getElementById("preview-content");
-  const script = document.createElement('script');
-  script.src = "https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js";
-  script.onload = () => html2pdf().from(element).save("My_Professional_Resume.pdf");
-  document.body.appendChild(script);
+  html2pdf().from(element).save("My_Professional_Resume.pdf");
 });
