@@ -1,42 +1,57 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f7f7;
 }
 
-header {
-  background: #007bff;
-  color: white;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 20px;
-  text-align: center;
 }
 
-form {
-  margin: 20px;
-  padding: 20px;
+.form-section, .resume-preview {
+  flex: 1 1 45%;
+  margin: 10px;
   background: white;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 input, textarea {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
   margin: 10px 0;
-  display: block;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 button {
-  padding: 10px 20px;
   background: #007bff;
   color: white;
   border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-#resume-preview {
-  margin: 20px;
+.resume-preview {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+#preview-content {
   padding: 20px;
-  background: white;
-  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+h2 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  margin-top: 20px;
 }
