@@ -1,38 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Professional Resume Builder</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <div class="form-section">
-      <h1>Build Your Resume</h1>
-      <form id="resumeForm">
-        <input type="text" name="name" placeholder="Full Name" required />
-        <input type="text" name="title" placeholder="Job Title (e.g. Software Engineer)" />
-        <textarea name="summary" placeholder="Professional Summary"></textarea>
+<form id="resumeForm">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="text" name="title" placeholder="Job Title" required />
+  <textarea name="summary" placeholder="Professional Summary" required></textarea>
 
-        <h3>Experience</h3>
-        <textarea name="experience" placeholder="e.g. Company, Role, Duration, Description"></textarea>
+  <h3>Experience</h3>
+  <textarea name="experience" placeholder="Company, Role, Duration, Description" required></textarea>
 
-        <h3>Skills (comma separated)</h3>
-        <input type="text" name="skills" placeholder="JavaScript, Python, Team Leadership" />
+  <h3>Skills (comma separated)</h3>
+  <input type="text" name="skills" placeholder="e.g. JavaScript, Python" required />
 
-        <button type="submit">Preview Resume</button>
-      </form>
-    </div>
-
-    <div class="resume-preview" id="resume-preview">
-      <div id="preview-content">
-        <!-- Live Resume will render here -->
-      </div>
-      <button id="downloadBtn">Download as PDF</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <button type="submit">Preview Resume</button>
+</form>
