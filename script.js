@@ -1,38 +1,31 @@
-function startBuilding() {
-  document.querySelector('header').style.display = 'none';
-  document.getElementById('form-section').style.display = 'block';
-}
+const form = document.getElementById("resumeForm");
+const preview = document.getElementById("preview-content");
 
-const form = document.getElementById('resumeForm');
-const preview = document.getElementById('preview-content');
-
-form.addEventListener('input', updatePreview);
-form.addEventListener('submit', function(e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
-  updatePreview();
-});
-
-function updatePreview() {
-  const name = form.name.value;
-  const email = form.email.value;
-  const phone = form.phone.value;
-  const summary = form.summary.value;
-  const skills = form.skills.value.split(',').map(skill => `<li>${skill.trim()}</li>`).join('');
+  const name = form.name.value.trim();
+  const title = form.title.value.trim();
+  const summary = form.summary.value.trim();
+  const experience = form.experience.value.trim();
+  const skills = form.skills.value.split(',').map(s => s.trim());
 
   preview.innerHTML = `
     <h1>${name}</h1>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Summary:</strong> ${summary}</p>
-    <h3>Skills:</h3>
-    <ul>${skills}</ul>
+    <h3>${title}</h3>
+    <h2>Summary</h2>
+    <p>${summary}</p>
+    <h2>Experience</h2>
+    <p>${experience.replace(/\n/g, '<br>')}</p>
+    <h2>Skills</h2>
+    <ul>${skills.map(skill => `<li>${skill}</li>`).join('')}</ul>
   `;
-}
+});
 
-// Download as PDF
-document.getElementById('downloadBtn').addEventListener('click', function () {
-  import('https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js').then(html2pdf => {
-    const element = document.getElementById('preview-content');
-    html2pdf.default().from(element).save('My_Resume.pdf');
-  });
+// PDF download
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const element = document.getElementById("preview-content");
+  const script = document.createElement('script');
+  script.src = "https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js";
+  script.onload = () => html2pdf().from(element).save("My_Professional_Resume.pdf");
+  document.body.appendChild(script);
 });
